@@ -3,8 +3,8 @@ using UnityEngine;
 
 public enum CardType { GivenOut, Life }
 
-[CreateAssetMenu(fileName ="Player Hand")]
-public class PlayerHandSO : ScriptableObject
+[CreateAssetMenu(fileName ="Hand")]
+public class HandSO : ScriptableObject
 {
     [SerializeField, Range(0, 20)] int maxCardsCount;
     public void SetMaxCardsCount(int value)
@@ -66,7 +66,7 @@ public class PlayerHandSO : ScriptableObject
     /// Количество живых карт
     /// </summary>
     /// <returns></returns>
-    public int CountOfRemainingCarg()
+    public int CountOfRemainingCard()
     {
         return infinityHand ? maxCardsCount - _deathCardCount : _cards.Count - _deathCardCount;
     }

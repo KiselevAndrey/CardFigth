@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-enum Direction { Up, None }
+public enum Direction { Up, Down, None }
 public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     [SerializeField] Card card;
-    [SerializeField] Direction direction;
+    [SerializeField] public Direction direction;
 
     [SerializeField] FightManager fightManager;
 
@@ -26,7 +26,9 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (currentPos.y < _startPosition.y) currentPos.y = _startPosition.y;
                 currentPos = new Vector2(_startPosition.x, currentPos.y);
                 break;
-            default:
+            case Direction.Down:
+                if (currentPos.y > _startPosition.y) currentPos.y = _startPosition.y;
+                currentPos = new Vector2(_startPosition.x, currentPos.y);
                 break;
         }
         card.transform.position = currentPos;
@@ -35,6 +37,7 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
         card.transform.position = _startPosition;
-        fightManager.Attack();
+        if(card.health.IsLife())
+            fightManager.Attack();
     }
 }

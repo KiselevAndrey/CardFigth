@@ -3,13 +3,9 @@
 enum TypeFight { Attack, Defense }
 public class FightManager : MonoBehaviour
 {
-    [Header("Данные противника")]
-    [SerializeField] Card enemy;
-    [SerializeField] PlayerHandSO enemyHand;
-
-    [Header("Данные игрока")]
-    [SerializeField] Card player;
-    [SerializeField] PlayerHandSO playerHand;
+    [Header("Данные игроков")]
+    [SerializeField] PlayerManager playerUp;
+    [SerializeField] PlayerManager playerDown;
 
     [Header("Доп данные")]
     [SerializeField, Tooltip("На что будет реагировать множитель")] TypeFight typeFight;
@@ -17,16 +13,28 @@ public class FightManager : MonoBehaviour
     [SerializeField] SceneManagerSO sceneManager;
     [SerializeField] Object afterGameScene;
 
+    bool _stepUp;
+
     public void Attack()
     {
-        Attack(ref player, ref enemy);
-        Attack(ref enemy, ref player);
+        if (!_stepUp || playerDown.isBot)
+        {
+            Attack(ref playerDown.currentCard, ref playerUp.currentCard);
+            _stepUp = true;
+        }
+        if (_stepUp || playerUp.isBot)
+        {
+            Attack(ref playerUp.currentCard, ref playerDown.currentCard);
+            _stepUp = false;
+        }
+        
         TryWin();
     }
 
     void Attack(ref Card first, ref Card second)
     {
         int damage = 0;
+
         switch (typeFight)
         {
             case TypeFight.Attack:
@@ -35,8 +43,6 @@ public class FightManager : MonoBehaviour
             case TypeFight.Defense:
                 damage = second.Attack(first.attack);
                 break;
-            default:
-                break;
         }
 
         second.health.GetDamage(damage);
@@ -44,21 +50,21 @@ public class FightManager : MonoBehaviour
 
     void TryWin()
     {
-        if (UpdateWin(player, enemy, enemyHand))
+        if (UpdateWin(playerUp.currentCard, playerDown.currentCard, playerDown.hand))
         {
-            UpdateWinnerLog(player, playerHand);
+            UpdateWinnerLog(playerUp.playerName, playerUp.hand.CountOfRemainingCard());
         }
 
-        else if (UpdateWin(enemy, player, playerHand))
+        else if (UpdateWin(playerDown.currentCard, playerUp.currentCard, playerUp.hand))
         {
-            UpdateWinnerLog(enemy, enemyHand);
+            UpdateWinnerLog(playerDown.playerName, playerDown.hand.CountOfRemainingCard());
         }
     }
 
-    void UpdateWinnerLog(Card card, PlayerHandSO hand)
+    void UpdateWinnerLog(string name, int remaningCard)
     { 
-        winnerLog.winerName = card.card.nameCardAvatar;
-        winnerLog.countOfRemainingCarg = hand.CountOfRemainingCarg();
+        winnerLog.winerName = name;
+        winnerLog.countOfRemainingCarg = remaningCard;
         sceneManager.LoadScene(afterGameScene.name);
     }
 
@@ -69,7 +75,7 @@ public class FightManager : MonoBehaviour
     /// <param name="second"></param>
     /// <param name="secondHand"></param>
     /// <returns></returns>
-    bool UpdateWin(Card first, Card second, PlayerHandSO secondHand)
+    bool UpdateWin(Card first, Card second, HandSO secondHand)
     {
         bool healtLessZero = !second.health.IsLife();
         if (healtLessZero) secondHand.AddDeath();
