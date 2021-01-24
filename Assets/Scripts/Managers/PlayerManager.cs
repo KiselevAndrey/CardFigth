@@ -8,13 +8,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Card rightCard;
 
     [Header("Доп объекты")]
-    [SerializeField] PlayerHandSO playerHand;
-
-    [SerializeField] bool infinityPlayerHand;
-
+    [SerializeField] PlayerHandSO hand;
+    
     void Start()
     {
-        playerHand.Shuffle();
+        hand.Zeroing();
 
         NextCard(ref currentCard);
         NextCard(ref leftCard);
@@ -23,17 +21,13 @@ public class PlayerManager : MonoBehaviour
 
     public void NextCard(ref Card card)
     {
-        if (!playerHand.CanGetNextCard())
-        {
-            if (infinityPlayerHand) playerHand.Shuffle();
-            else
-            {
-                card.gameObject.SetActive(false);
-                return;
-            }
+        if (!hand.HaveCard(CardType.GivenOut))
+        { 
+            card.gameObject.SetActive(false);
+            return;
         }
-        
-        card.FillingCard(playerHand.NextCard());
+                
+        card.FillingCard(hand.NextCard());
     }
 
     /// <summary>
@@ -42,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="card"></param>
     public void ReplaceCard(Card card)
     {
-        if (currentCard.health.Value > 0) return;
+        //if (currentCard.health.Value > 0) return;
 
         currentCard.FillingCard(card.card);
         NextCard(ref card);

@@ -266,8 +266,7 @@ MonoBehaviour:
   currentCard: {fileID: 5349553771838403676}
   leftCard: {fileID: 1182985532}
   rightCard: {fileID: 933992942}
-  playerHand: {fileID: 11400000, guid: 0ce31dd8af83702458453ee3e79a3781, type: 2}
-  infinityPlayerHand: 1
+  hand: {fileID: 11400000, guid: 0ce31dd8af83702458453ee3e79a3781, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,8 +663,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1677838510}
+  enemyHand: {fileID: 11400000, guid: c098eee3ab8e93a4d8f86707ea6c2cf9, type: 2}
   player: {fileID: 5349553771838403676}
+  playerHand: {fileID: 11400000, guid: 0ce31dd8af83702458453ee3e79a3781, type: 2}
   typeFight: 0
+  winnerLog: {fileID: 11400000, guid: e8956f890b186c849be31ae6ebc329f2, type: 2}
+  sceneManager: {fileID: 11400000, guid: b016a52eaea24d845a7acd6ed942e0c9, type: 2}
+  afterGameScene: {fileID: 102900000, guid: 108274c3549b96549be6e439aea7924b, type: 3}
 --- !u!1001 &1394646672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1143,6 +1147,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471675055742053342, guid: b5cf406a4cd4adf4d884c69d7bbf47f8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471675055742053342, guid: b5cf406a4cd4adf4d884c69d7bbf47f8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1471675055742053343, guid: b5cf406a4cd4adf4d884c69d7bbf47f8,
         type: 3}

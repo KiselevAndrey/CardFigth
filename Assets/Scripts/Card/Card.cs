@@ -38,4 +38,14 @@ public class Card : MonoBehaviour
         cardName.text = _card.nameCardAvatar;
         cardDescription.text = _card.description;
     }
+
+    public int Attack(Defense enemyDefense)
+    {
+        return attack.GetDamage(enemyDefense);
+    }
+
+    public int Attack(Attack enemyAttack)
+    {
+        return defense.GetDamage(enemyAttack);
+    }
 }

@@ -8,7 +8,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hand.Shuffle();
+        hand.Zeroing();
         card.FillingCard(hand.NextCard());
     }
 }
