@@ -22,5 +22,5 @@ MonoBehaviour:
   valueAttack: 8
   statsDefense: {fileID: 11400000, guid: 8f3d3c0b011ee3e44ba5fe0759c0ac12, type: 2}
   valueDefense: 5
-  valueHealth: 10
+  valueHealth: 20
   valueManaCost: 0

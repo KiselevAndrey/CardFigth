@@ -5,24 +5,22 @@ public class Health : MonoBehaviour
 {
     [Header("Привязки")]
     [SerializeField, Tooltip("Куда будет отображаться значение")] Text text;
+    [SerializeField] Animator anim;
 
     int _value;
     public int Value { get => _value; }
 
     void UpdateText()
     {
+        anim.SetInteger("health", _value);
         text.text = _value.ToString();
     }
 
     public void UpdateValue(int newValue)
     {
         _value = newValue;
+
         UpdateText();
-        GetComponent<Animator>().SetInteger("health", _value);
-
-        //print(gameObject.name);
-        //print(GetComponent<Animator>().GetInteger("health").ToString() + " " + _value.ToString());
-
     }
 
     public void GetDamage(int damage)
@@ -36,4 +34,6 @@ public class Health : MonoBehaviour
 
         UpdateText();
     }
+
+    public bool IsLife() => _value > 0;
 }

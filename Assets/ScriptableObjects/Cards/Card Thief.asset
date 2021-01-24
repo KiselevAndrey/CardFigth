@@ -21,7 +21,7 @@ MonoBehaviour:
     \u0431\u043E\u043B\u044C\u0448\u0435\u0433\u043E \u0434\u043B\u044F \u0432\u0441\u043A\u0440\u044B\u0442\u0438\u044F
     \u0438 \u043D\u0435 \u043D\u0430\u0434\u043E."
   statsAttack: {fileID: 11400000, guid: 8f3d3c0b011ee3e44ba5fe0759c0ac12, type: 2}
-  valueAttack: 5
+  valueAttack: 8
   statsDefense: {fileID: 11400000, guid: 785d2f8d0f01def4b89cdaec016984e1, type: 2}
   valueDefense: 3
   valueHealth: 10

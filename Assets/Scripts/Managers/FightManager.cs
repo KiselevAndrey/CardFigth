@@ -44,9 +44,6 @@ public class FightManager : MonoBehaviour
 
     void TryWin()
     {
-        //print("player " + player.health.Value.ToString() + " " + playerHand.CanGetNextCard());
-        //print("enemy " + enemy.health.Value.ToString() + " " + enemyHand.CanGetNextCard());
-
         if (UpdateWin(player, enemy, enemyHand))
         {
             UpdateWinnerLog(player, playerHand);
@@ -66,7 +63,7 @@ public class FightManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Выигрывает first, если second умер и на руке больше нет карт
+    /// Выигрывает first, если second умер и у него на руке больше нет карт
     /// </summary>
     /// <param name="first"></param>
     /// <param name="second"></param>
@@ -74,9 +71,9 @@ public class FightManager : MonoBehaviour
     /// <returns></returns>
     bool UpdateWin(Card first, Card second, PlayerHandSO secondHand)
     {
-        bool healtLessZero = second.health.Value <= 0;
+        bool healtLessZero = !second.health.IsLife();
         if (healtLessZero) secondHand.AddDeath();
 
-        return first.health.Value > 0 && healtLessZero && !secondHand.HaveCard(CardType.Life);
+        return first.health.IsLife() && healtLessZero && !secondHand.HaveCard(CardType.Life);
     }
 }

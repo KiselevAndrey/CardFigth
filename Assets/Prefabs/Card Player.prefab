@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1471675055136562948}
+  anim: {fileID: 8612674298961293535}
 --- !u!114 &7178074655236214798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,8 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
-  animator: {fileID: 8612674298961293535}
-  currentCard: {fileID: 1471675054570584677}
 --- !u!95 &8612674298961293535
 Animator:
   serializedVersion: 3

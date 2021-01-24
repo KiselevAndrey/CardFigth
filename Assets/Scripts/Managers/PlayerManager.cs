@@ -44,6 +44,8 @@ public class PlayerManager : MonoBehaviour
 
     public void StartCurrentCardAnim(string animName)
     {
-        currentCard.GetComponent<Animator>().Play(animName);
+
+        if (currentCard.health.IsLife())
+            currentCard.GetComponent<Animator>().Play(animName);
     }
 }
