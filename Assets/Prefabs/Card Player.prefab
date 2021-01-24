@@ -245,6 +245,8 @@ GameObject:
   - component: {fileID: 1471675054570584676}
   - component: {fileID: 1471675054570584679}
   - component: {fileID: 1471675054570584674}
+  - component: {fileID: 7178074655236214798}
+  - component: {fileID: 8612674298961293535}
   m_Layer: 5
   m_Name: Card Player
   m_TagString: Untagged
@@ -373,7 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c2e9324b1085b4c8c070d05e2001f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: e33295cb0ff0eb94fa22ca47073f0218, type: 2}
   backGround: {fileID: 1471675055803409485}
   avatar: {fileID: 1471675055742053343}
   cardName: {fileID: 1471675053804143235}
@@ -393,8 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7d17b35c1691d4bbe43f42944d7090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: 785d2f8d0f01def4b89cdaec016984e1, type: 2}
-  value: 3
   text: {fileID: 1471675055546723718}
   imageStat: {fileID: 1471675055348133605}
 --- !u!114 &1471675054570584679
@@ -409,8 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ada7da295a96524ab4f0833b00d795f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: e022ed7eef7b62e44accca5d5fa2118f, type: 2}
-  value: 5
   text: {fileID: 1471675055593539833}
   imageStat: {fileID: 1471675054878331732}
 --- !u!114 &1471675054570584674
@@ -425,8 +422,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b81e846e8567914dad933751f67ad67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 20
   text: {fileID: 1471675055136562948}
+--- !u!114 &7178074655236214798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471675054570584682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e607d983e0d1944b54e1bc48b8d582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  animator: {fileID: 8612674298961293535}
+  currentCard: {fileID: 1471675054570584677}
+--- !u!95 &8612674298961293535
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471675054570584682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90378584f4da286498ff4aa82d97e9d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1471675054644997454
 GameObject:
   m_ObjectHideFlags: 0

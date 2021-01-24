@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ae4c1ee544a174ab27b80df7153c04, type: 3}
+  m_Name: Player Hand
+  m_EditorClassIdentifier: 
+  maxCardsCount: 10
+  _cards:
+  - {fileID: 11400000, guid: 30bf0426fec6f3b44ad04d16f98d1d2c, type: 2}
+  - {fileID: 11400000, guid: e33295cb0ff0eb94fa22ca47073f0218, type: 2}
+  - {fileID: 11400000, guid: 88ea4986491a5604fb8f5c0e392a9869, type: 2}

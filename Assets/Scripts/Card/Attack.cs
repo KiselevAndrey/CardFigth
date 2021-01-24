@@ -29,4 +29,12 @@ public class Attack : MonoBehaviour
 
         UpdateBinding();
     }
+
+    public int GetDamage(Defense defense)
+    {
+        int temp = _value * (int)_stat.GetWinMultiply(defense.StatsSO.CurrentStat) - defense.Value;
+        if (temp < 0) temp = 0;
+
+        return temp;
+    }
 }

@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName ="Player Hand")]
 public class PlayerHandSO : ScriptableObject
 {
     [SerializeField, Range(0, 20)] int maxCardsCount;
 
     public List<CardSO> _cards;
-    int _i;
+    int _i = 0;
 
     public void Shuffle()
     {
@@ -18,10 +17,8 @@ public class PlayerHandSO : ScriptableObject
 
     public CardSO NextCard()
     {
-        CardSO temp = _cards[_i];
-
-        if (_i >= _cards.Count) Shuffle();
-
+        CardSO temp = _cards[_i++];
+        
         return temp;
     }
 
@@ -29,4 +26,6 @@ public class PlayerHandSO : ScriptableObject
     {
         if (_cards.Count < maxCardsCount) _cards.Add(card);
     }
+
+    public bool CanGetNextCard() => _i < _cards.Count && _i < maxCardsCount;
 }

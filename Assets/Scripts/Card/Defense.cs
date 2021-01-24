@@ -37,6 +37,9 @@ public class Defense : MonoBehaviour
     /// <returns></returns>
     public int GetDamage(Attack attack)
     {
-        return attack.Value - _value * (int)_stat.GetLossMultiply(attack.StatsSO.CurrentStat);
+        int temp = attack.Value - _value * (int)_stat.GetLossMultiply(attack.StatsSO.CurrentStat);
+        if (temp < 0) temp = 0;
+
+        return temp;
     }
 }

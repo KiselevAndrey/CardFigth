@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName ="Card")]
 public class CardSO : ScriptableObject
 {
     [Header("Общие данные")]
     public Sprite backGround;
     public Sprite avatar;
-    public string nameAvatar;
+    public string nameCardAvatar;
     [TextArea(1, 5)] public string description;
     
     [Header("Атака")]

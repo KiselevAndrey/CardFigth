@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 164f5e31e3c8b2b4097914426ee7eee3, type: 3}
-  m_Name: Card Thief
+  m_Name: Card Shaman
   m_EditorClassIdentifier: 
   backGround: {fileID: -1429971445049294685, guid: 90f6ed0df99566b488c95f36daea2eb4,
     type: 3}
-  avatar: {fileID: 21300000, guid: af5a11e7b82889a4dba964c9092fc6c4, type: 3}
-  nameAvatar: "\u0412\u043E\u0440"
-  description: "\u0421\u0438\u043B\u0430 \u0438 \u043B\u043E\u0432\u043A\u043E\u0441\u0442\u044C!\n\u0410
-    \u0431\u043E\u043B\u044C\u0448\u0435\u0433\u043E \u043C\u043D\u0435 \u0438 \u043D\u0435
-    \u043D\u0430\u0434\u043E."
-  statsAttack: {fileID: 11400000, guid: 8f3d3c0b011ee3e44ba5fe0759c0ac12, type: 2}
+  avatar: {fileID: 21300000, guid: 9bcc3a8a91f565e428f77aadd80eb611, type: 3}
+  nameCardAvatar: "\u0428\u0430\u043C\u0430\u043D"
+  description: "\u0423 \u0448\u0430\u043C\u0430\u043D\u0430 3 \u0440\u0443\u043A\u0438"
+  statsAttack: {fileID: 11400000, guid: e022ed7eef7b62e44accca5d5fa2118f, type: 2}
   valueAttack: 5
   statsDefense: {fileID: 11400000, guid: 785d2f8d0f01def4b89cdaec016984e1, type: 2}
-  valueDefense: 3
+  valueDefense: 5
   valueHealth: 10
-  valueManaCost: 5
+  valueManaCost: 0

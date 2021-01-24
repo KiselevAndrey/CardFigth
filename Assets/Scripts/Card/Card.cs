@@ -15,18 +15,27 @@ public class Card : MonoBehaviour
     public Health health;
 
     //[SerializeField, Min(0)] int manaCost;
+    
+    CardSO _card;
+
+    public CardSO card { get => _card; }
 
     /// <summary>
     /// Заполнение карты
     /// </summary>
-    /// <param name="newCard"></param>
+    /// <param name="_card"></param>
     public void FillingCard(CardSO newCard)
     {
-        backGround.sprite = newCard.backGround;
-        avatar.sprite = newCard.avatar;
-        
-        attack.UpdateStat(newCard.statsAttack, newCard.valueAttack);
-        defense.UpdateStat(newCard.statsDefense, newCard.valueDefense);
+        _card = newCard;
 
+        backGround.sprite = _card.backGround;
+        avatar.sprite = _card.avatar;
+        
+        attack.UpdateStat(_card.statsAttack, _card.valueAttack);
+        defense.UpdateStat(_card.statsDefense, _card.valueDefense);
+        health.UpdateValue(_card.valueHealth);
+
+        cardName.text = _card.nameCardAvatar;
+        cardDescription.text = _card.description;
     }
 }

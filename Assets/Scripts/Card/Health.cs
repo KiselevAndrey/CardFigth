@@ -26,6 +26,8 @@ public class Health : MonoBehaviour
 
         if (_value <= 0) _value = 0;
 
+        GetComponent<Animator>().SetInteger("health", _value);
+
         UpdateText();
     }
 }
