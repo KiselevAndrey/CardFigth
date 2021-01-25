@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-enum TypeFight { Attack, Defense }
 public class FightManager : MonoBehaviour
 {
     [Header("Данные игроков")]
@@ -8,7 +7,6 @@ public class FightManager : MonoBehaviour
     [SerializeField] PlayerManager playerDown;
 
     [Header("Доп данные")]
-    [SerializeField, Tooltip("На что будет реагировать множитель")] TypeFight typeFight;
     [SerializeField] WinnerLogSO winnerLog;
     [SerializeField] SceneManagerSO sceneManager;
     [SerializeField] Object afterGameScene;
@@ -33,19 +31,10 @@ public class FightManager : MonoBehaviour
 
     void Attack(ref Card first, ref Card second)
     {
-        int damage = 0;
+        int damage = first.Attack(second.health.StatsSO.CurrentStat);
+        Color color = first.attack.StatsSO.Color;
 
-        switch (typeFight)
-        {
-            case TypeFight.Attack:
-                damage = first.Attack(second.defense);
-                break;
-            case TypeFight.Defense:
-                damage = second.Attack(first.attack);
-                break;
-        }
-
-        second.health.GetDamage(damage);
+        second.health.GetDamage(damage, color);
     }
 
     void TryWin()

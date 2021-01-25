@@ -13,15 +13,7 @@ public class Attack : MonoBehaviour
     public int Value { get => _value; }
     public StatsSO StatsSO { get => _stat; }
 
-    /// <summary>
-    /// Обновление привязок
-    /// </summary>
-    void UpdateBinding()
-    {
-        text.text = _value.ToString();
-        imageStat.color = _stat.Color;
-    }
-
+    #region Updates
     public void UpdateStat(StatsSO stat, int value)
     {
         _stat = stat;
@@ -30,11 +22,15 @@ public class Attack : MonoBehaviour
         UpdateBinding();
     }
 
-    public int GetDamage(Defense defense)
+    /// <summary>
+    /// Обновление привязок
+    /// </summary>
+    void UpdateBinding()
     {
-        int temp = _value * (int)_stat.GetWinMultiply(defense.StatsSO.CurrentStat) - defense.Value;
-        if (temp < 0) temp = 0;
-
-        return temp;
+        text.text = _value.ToString();
+        imageStat.color = _stat.Color;
     }
+    #endregion
+
+    public int GetDamage(Stats enemyHealthStat) => (int)(_value * _stat.GetWinMultiply(enemyHealthStat));
 }

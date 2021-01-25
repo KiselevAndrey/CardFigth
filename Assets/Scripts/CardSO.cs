@@ -13,11 +13,7 @@ public class CardSO : ScriptableObject
     public StatsSO statsAttack;
     public int valueAttack;
     
-    [Header("Защита")]
-    public StatsSO statsDefense;
-    public int valueDefense;
-
-    [Header("Доп значения")]
+    [Header("Жизнь")]
+    public StatsSO statsHealth;
     public int valueHealth;
-    public int valueManaCost;
 }

@@ -14,6 +14,9 @@ public class PlayerManager : MonoBehaviour
     [Header("Данные для бота или второго игрока")]
     [Tooltip("За игрока играет бот?")] public bool isBot;
     [SerializeField, Tooltip("Переворачивать карты на 180?")] bool isShifter;
+    [SerializeField] Direction direction;
+
+    Animator _animCurrentCard;
 
     void Start()
     {
@@ -23,15 +26,19 @@ public class PlayerManager : MonoBehaviour
         NextCard(ref leftCard);
         NextCard(ref rightCard);
 
-        //if (isShifter) TurnCards();//////////////////////////////// dont work(((((((( ///////////////////////
+        _animCurrentCard = currentCard.GetComponent<Animator>();
+
+        _animCurrentCard.SetBool("isShifter", isShifter);
+        _animCurrentCard.SetBool("isUpDirection", direction == Direction.Up);
+
+        if (isShifter) Turned();
     }
 
-    void TurnCards()
+    void Turned()
     {
-        
-        float degrees = 180;
-        Vector3 to = new Vector3(0, 0, degrees );
-        currentCard.transform.rotation = Quaternion.Inverse(currentCard.transform.rotation);
+        //float degrees = 180;
+        //Vector3 to = new Vector3(0, 0, degrees );
+        //currentCard.transform.rotation = Quaternion.Inverse(currentCard.transform.rotation);
     }
 
     public void NextCard(ref Card card)
@@ -51,6 +58,8 @@ public class PlayerManager : MonoBehaviour
     /// <param name="card"></param>
     public void ReplaceCard(Card card)
     {
+        hand.AddDeath();
+
         //if (currentCard.health.Value > 0) return;
 
         currentCard.FillingCard(card.card);

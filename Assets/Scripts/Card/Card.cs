@@ -11,7 +11,6 @@ public class Card : MonoBehaviour
 
     [Header("Скрипты атаки, защиты и здоровья")]
     public Attack attack;
-    public Defense defense;
     public Health health;
 
     //[SerializeField, Min(0)] int manaCost;
@@ -32,20 +31,11 @@ public class Card : MonoBehaviour
         avatar.sprite = _card.avatar;
         
         attack.UpdateStat(_card.statsAttack, _card.valueAttack);
-        defense.UpdateStat(_card.statsDefense, _card.valueDefense);
-        health.UpdateValue(_card.valueHealth);
+        health.UpdateStat(_card.statsHealth, _card.valueHealth);
 
         cardName.text = _card.nameCardAvatar;
         cardDescription.text = _card.description;
     }
 
-    public int Attack(Defense enemyDefense)
-    {
-        return attack.GetDamage(enemyDefense);
-    }
-
-    public int Attack(Attack enemyAttack)
-    {
-        return defense.GetDamage(enemyAttack);
-    }
+    public int Attack(Stats enemyHealthStat) => attack.GetDamage(enemyHealthStat);
 }

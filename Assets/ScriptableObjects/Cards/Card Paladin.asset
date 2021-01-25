@@ -20,7 +20,5 @@ MonoBehaviour:
     \u0432\u0430\u043C\u0438 \u0421\u0432\u0435\u0442!"
   statsAttack: {fileID: 11400000, guid: e022ed7eef7b62e44accca5d5fa2118f, type: 2}
   valueAttack: 8
-  statsDefense: {fileID: 11400000, guid: 8f3d3c0b011ee3e44ba5fe0759c0ac12, type: 2}
-  valueDefense: 5
+  statsHealth: {fileID: 11400000, guid: 8f3d3c0b011ee3e44ba5fe0759c0ac12, type: 2}
   valueHealth: 20
-  valueManaCost: 0

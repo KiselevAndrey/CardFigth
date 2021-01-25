@@ -19,7 +19,5 @@ MonoBehaviour:
   description: "\u0423 \u0448\u0430\u043C\u0430\u043D\u0430 3 \u0440\u0443\u043A\u0438"
   statsAttack: {fileID: 11400000, guid: e022ed7eef7b62e44accca5d5fa2118f, type: 2}
   valueAttack: 5
-  statsDefense: {fileID: 11400000, guid: 785d2f8d0f01def4b89cdaec016984e1, type: 2}
-  valueDefense: 3
+  statsHealth: {fileID: 11400000, guid: 785d2f8d0f01def4b89cdaec016984e1, type: 2}
   valueHealth: 15
-  valueManaCost: 0

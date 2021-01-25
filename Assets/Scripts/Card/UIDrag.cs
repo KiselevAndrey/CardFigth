@@ -18,6 +18,7 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!card.health.IsLife()) return;
         Vector2 currentPos = eventData.pointerCurrentRaycast.screenPosition;
 
         switch (direction)
