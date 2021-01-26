@@ -1028,9 +1028,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5349553770386478141}
     m_Modifications:
+    - target: {fileID: 2879324835062468552, guid: 17f68607a1296644c80977785cd20f0c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2879324835104817221, guid: 17f68607a1296644c80977785cd20f0c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879324836305215074, guid: 17f68607a1296644c80977785cd20f0c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879324836305215074, guid: 17f68607a1296644c80977785cd20f0c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879324836305215087, guid: 17f68607a1296644c80977785cd20f0c,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7910577561229987522, guid: 17f68607a1296644c80977785cd20f0c,

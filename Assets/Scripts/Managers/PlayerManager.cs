@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Direction direction;
 
     Animator _animCurrentCard;
+    Animator _animLeftCard;
+    Animator _animRightCard;
 
     void Start()
     {
@@ -27,6 +29,8 @@ public class PlayerManager : MonoBehaviour
         NextCard(ref rightCard);
 
         _animCurrentCard = currentCard.GetComponent<Animator>();
+        _animLeftCard = currentCard.GetComponent<Animator>();
+        _animRightCard = currentCard.GetComponent<Animator>();
 
         _animCurrentCard.SetBool("isShifter", isShifter);
         _animCurrentCard.SetBool("isUpDirection", direction == Direction.Up);
@@ -60,6 +64,8 @@ public class PlayerManager : MonoBehaviour
     {
         hand.AddDeath();
 
+        StartAnimBorderCards("idle");
+
         //if (currentCard.health.Value > 0) return;
 
         currentCard.FillingCard(card.card);
@@ -70,5 +76,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentCard.health.IsLife())
             currentCard.GetComponent<Animator>().Play(animName);
+    }
+
+    public void StartAnimBorderCards(string animName)
+    {
+        _animLeftCard.Play(animName);
+        _animRightCard.Play(animName);
     }
 }
